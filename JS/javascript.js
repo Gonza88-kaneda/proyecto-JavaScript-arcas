@@ -13,6 +13,8 @@ function comprar() {
     if (comercio.includes(producto)) {
         if (Billetera >= PrecioPorIngrediente ) {
             miInventario.push (producto);
+            let indice = comercio.indexOf(producto);
+            comercio.splice(indice,1);
             Billetera-=PrecioPorIngrediente;
             console.log ("compraste: " + producto) 
         }
@@ -27,6 +29,7 @@ function vender () {
     if (miInventario.includes (producto)) {
         let indice = miInventario.indexOf(producto);
         miInventario.splice(indice,1);
+        comercio.push (producto);
         Billetera += PrecioPorIngrediente;
         console.log ("vendiste: " + producto)
 
